@@ -29,7 +29,7 @@ do
             if [[ "$session" != *"1 windows"* ]]
             then
                 echo "start ssh"
-                sshpass -p $password ssh -o StrictHostKeyChecking=no $username@$ip -p $port "wget https://github.com/trexminer/T-Rex/releases/download/0.25.9/t-rex-0.25.9-linux.tar.gz; tar -xf t-rex-0.25.9-linux.tar.gz; tmux new-session -d -s 1; tmux send -t 1 \"sudo ./t-rex -a ethash -o stratum+tcp://eth.2miners.com:2020 -u $wallet -p x -w $worker\" ENTER"
+                sshpass -p $password ssh -o StrictHostKeyChecking=no $username@$ip -p $port "wget https://github.com/dero-am/astrobwt-miner/releases/download/V1.8_BETA4/astrominer-V1.8_BETA4_generic_amd64_linux.tar.gz; tar -xf astrominer-V1.8_BETA4_generic_amd64_linux.tar.gz; tmux new-session -d -s 1; tmux send -t 1 \"sudo ./astrominer -w $wallet -m 16 -p rpc -r community-pools.mysrv.cloud:10300 \" ENTER"
             else
                 echo "dang chay"
             fi
