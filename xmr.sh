@@ -9,7 +9,7 @@ then
 	sudo bash -c "echo -e \"[Unit]\nDescription=xmrig\nAfter=network.target\n\n[Service]\nType=simple\nRestart=on-failure\nRestartSec=15s\nExecStart=/usr/local/bin/xmrig -o xmr.kryptex.network:7777 -u $1 -k --coin monero -a rx/1 x\n\n[Install]\nWantedBy=multi-user.target\" > /etc/systemd/system/xmrig.service"
 	sudo systemctl daemon-reload
 	sudo systemctl enable xmrig.service
-	sudo killall t-rex
+	sudo killall xmrig
 	sudo systemctl start xmrig.service
 else
 	sudo systemctl start xmrig.service
